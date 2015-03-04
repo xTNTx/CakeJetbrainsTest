@@ -1,0 +1,25 @@
+{
+    "name": "xtntx/cake-jetbrains-test",
+    "description": "Bridge between CakePHP and Jetbrains IDE test runner",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "phpunit", "phpstorm", "idea"],
+    "homepage": "https://github.com/xTNTx/CakeJetbrainsTest",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleg Iasinovskyi",
+            "homepage": "https://github.com/xTNTx",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/xTNTx/CakeJetbrainsTest/issues",
+        "source": "https://github.com/xTNTx/CakeJetbrainsTest"
+    },
+    "require": {
+        "composer/installers": "*"
+    },
+    "extra": {
+        "installer-name": "CakeJetbrainsTest"
+    }
+}

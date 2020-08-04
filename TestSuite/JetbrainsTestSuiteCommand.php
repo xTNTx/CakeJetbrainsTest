@@ -20,7 +20,9 @@ class JetbrainsTestSuiteCommand extends CakeTestSuiteCommand {
         } else {
             $printer = null;
         }
-        $printer = new IDE_PHPUnit_TextUI_ResultPrinter($printer);
+
+        $out = isset($this->arguments['stderr']) ? 'php://stderr' : null;
+        $printer = new IDE_PHPUnit_TextUI_ResultPrinter($printer, $out);
         $this->arguments['printer'] = $printer;
         $this->arguments['listeners'][] = new IDE_PHPUnit_Framework_TestListener($printer);
     }

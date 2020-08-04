@@ -49,7 +49,7 @@ class JetbrainsTestShell extends TestShell {
      */
     protected function parseArgsIDE($argv) {
         $args = array();
-        foreach ($argv as $value) {
+        foreach ($argv as $key => $value) {
             if (strpos($value, 'phpunit.php') !== false) {
                 // parse out path to IDE helpers lib
                 $lib_path = $value;
@@ -59,6 +59,16 @@ class JetbrainsTestShell extends TestShell {
             } else {
                 $args[] = $value;
             }
+        }
+        // test-suffix flag is not supported
+        // add the suffix to the test directory (passed as a last argument)
+        // and remove the flag along with its value
+        $suffixKey = array_search('--test-suffix', $args, true);
+        if ($suffixKey) {
+            $testPath = array_pop($args);
+            $args[] = $testPath . DS . $args[$suffixKey + 1];
+            unset($args[$suffixKey]);
+            unset($args[$suffixKey + 1]);
         }
 
         if (!empty($lib_path)) {

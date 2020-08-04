@@ -15,6 +15,6 @@ class JetbrainsTestLoader extends CakeTestLoader {
      * @return string
      */
     protected function _resolveTestFile($filePath, $params) {
-        return $filePath;
+        return parent::_resolveTestFile($filePath, $params);
     }
 }
